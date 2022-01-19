@@ -1,4 +1,4 @@
-# flght-app
+# flight-app
 
 # requirement
 
