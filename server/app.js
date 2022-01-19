@@ -161,11 +161,8 @@ app.get("/flights", (req, res) => {
 app.get("/flights/:sourceCity/:destinationCity/:maxStops", function (req, res) {
   res.header("Access-Control-Allow-Origin", "*");
   let cheapestPlan = [];
-  // const allPaths = printAllPaths(cities.indexOf(req.params.sourceCity), cities.indexOf(req.params.destinationCity));
-  printAllPaths(5, 0);
-  const pathsUnderMaxStops = allPaths.filter(
-    (item) => item.length <= req.params.maxStops + 2
-  );
+  printAllPaths(cities.indexOf(req.params.sourceCity), cities.indexOf(req.params.destinationCity));
+  const pathsUnderMaxStops = allPaths.filter(item => item.length <= parseInt(req.params.maxStops, 10) + 2);      
   allPaths = [];
   let cheapestPrice = 99999999;
   pathsUnderMaxStops.forEach((item) => {
